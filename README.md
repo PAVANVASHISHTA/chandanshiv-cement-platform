@@ -1,251 +1,189 @@
 # Chandanshiv Cement Products
 
-A premium, responsive business website for **Chandanshiv Cement Products**, built from the supplied project archive with React, Vite, modern CSS, and lightweight UI interactions.
+A premium, responsive **vanilla HTML + CSS + JavaScript** website for Chandanshiv Cement Products, designed around a warm beige architectural visual system.
 
 > **Stronger foundations. Better tomorrow.**
 
-## ✨ Project Overview
+## ✨ Frontend
 
-The website presents Chandanshiv Cement Products through a polished construction-focused interface with:
+The current frontend is intentionally framework-free for simple GitHub Pages hosting and predictable deployment.
 
-- Responsive desktop, tablet, and mobile layouts
-- Hero and brand introduction sections
-- Cement product showcase
-- Services and quality/value sections
-- Project/application presentation
-- Customer enquiry form with client-side validation/state
+It includes:
+
+- Adaptive desktop, tablet and mobile layouts
+- Beige architectural design system
+- Animated hero composition
+- Scroll reveal animations
+- Scroll progress indicator
+- Responsive navigation drawer
+- Adaptive pill buttons and hover/magnetic interactions
+- Interactive product enquiry modal
+- Client-side enquiry form feedback
+- Accessible labels, focus states and reduced-motion support
 - Contact and footer sections
-- Smooth UI interactions and responsive navigation
-- Warm architectural visual direction
 
-The project is intentionally kept as a frontend application. No backend or database is assumed.
+## 🎨 Beige Design System
 
-## 🧱 Technology Stack
+```css
+--bg-main: #fdfbf7;
+--bg-surface: #f5f2eb;
+--border-color: #e6dfd3;
+--primary: #8c7a65;
+--primary-hover: #766654;
+--secondary: #b5a795;
+--text-main: #2b2621;
+--text-muted: #61574c;
+```
+
+The palette is used consistently for canvas, surfaces, borders, interactive elements, typography and hover states.
+
+## 🧱 Technology
 
 | Technology | Purpose |
 |---|---|
-| React 18 | UI/component architecture |
-| Vite 6 | Development server and production bundling |
-| JavaScript | Interactions and application logic |
-| CSS | Responsive design, layout, animation, and theming |
-| Lucide React | UI icons |
-| GitHub Actions | Continuous build/deployment workflow |
+| HTML5 | Semantic page structure |
+| CSS3 | Layout, responsive design, animation and theme |
+| Vanilla JavaScript | Navigation, modal, form state and motion |
+| GitHub Actions | Deployment automation |
 | GitHub Pages | Static hosting |
 
-## 📁 Project Structure
+No React, Vite, npm dependency installation or JavaScript framework is required for the current frontend.
+
+## 📁 Structure
 
 ```text
 chandanshiv-cement-platform/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml
-├── public/
-├── src/
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── styles.css
 ├── index.html
-├── package.json
-├── vite.config.js
-├── .gitignore
-└── README.md
+├── styles.css
+├── script.js
+├── README.md
+└── .gitignore
 ```
 
-### Application entry point
+The runtime is intentionally simple:
 
 ```text
 index.html
-    ↓
-src/main.jsx
-    ↓
-src/App.jsx
-    ↓
-src/styles.css
+   ├── styles.css
+   └── script.js
 ```
-
-`index.html` is the Vite/React entry shell. The actual interface is rendered by the React application mounted from `src/main.jsx`.
 
 ## 🚀 Run Locally
 
-### Requirements
+Because this is a static website, no build step is required.
 
-- Node.js 20+ recommended
-- npm 10+ recommended
-- Git
+You can open `index.html` directly in a browser, or use any local static server.
 
-### Install dependencies
+Example with Python:
 
 ```bash
-npm install
+python -m http.server 8000
 ```
 
-### Start development server
-
-```bash
-npm run dev
-```
-
-Vite will print the local development URL in the terminal.
-
-### Create a production build
-
-```bash
-npm run build
-```
-
-The production output is generated in:
+Then open:
 
 ```text
-dist/
+http://localhost:8000
 ```
 
-### Preview the production build
+## 🌐 GitHub Pages
 
-```bash
-npm run preview
-```
-
-## 🌐 GitHub Pages Deployment
-
-The repository is configured for deployment through **GitHub Actions**.
-
-Every push to `main` is intended to run:
+The repository deploys the static site directly through GitHub Actions.
 
 ```text
-Checkout
-   ↓
-Setup Node
-   ↓
-Install dependencies
-   ↓
-Build with Vite
-   ↓
-Upload dist/
-   ↓
-Deploy to GitHub Pages
+Push to main
+    ↓
+GitHub Actions
+    ↓
+Upload repository as Pages artifact
+    ↓
+GitHub Pages
 ```
 
-### Repository
+Repository:
 
 https://github.com/PAVANVASHISHTA/chandanshiv-cement-platform
 
-### Expected Pages URL
+Expected Pages URL:
 
 https://pavanvashishta.github.io/chandanshiv-cement-platform/
 
-### Important deployment note
+GitHub Pages should use **GitHub Actions** as its deployment source.
 
-GitHub Pages must use **GitHub Actions** as its deployment source for the workflow in `.github/workflows/deploy.yml` to control the deployment.
+## 🔧 Troubleshooting
 
-Do not assume that a successful GitHub Actions workflow automatically means the live website has been visually verified. Always check the deployed URL after deployment.
+If the site is blank:
 
-## 🔧 Build & Deployment Troubleshooting
+1. Check the latest GitHub Actions run.
+2. Confirm the deployment job succeeded.
+3. Confirm `index.html`, `styles.css` and `script.js` are present at the repository root.
+4. Open the repository Pages URL rather than `https://pavanvashishta.github.io/`.
+5. Open browser DevTools → Console and Network.
+6. Check for missing CSS/JS files or JavaScript errors.
+7. Hard-refresh or test in a private window if an old deployment is cached.
 
-If the site is blank after deployment, check these in order:
-
-1. Open the GitHub Actions run and confirm the **Build** job succeeded.
-2. Confirm `npm run build` completed successfully.
-3. Confirm `dist/` was uploaded as the Pages artifact.
-4. Confirm the **Deploy** job succeeded.
-5. Open the repository's **Settings → Pages** and verify the source is **GitHub Actions**.
-6. Open the repository Pages URL, not the account root URL.
-7. Check browser DevTools → Console and Network for 404s or JavaScript errors.
-8. Verify generated asset paths match the deployed repository path.
-9. Hard-refresh or test in a private/incognito window to rule out stale cached assets.
-
-Never mark a deployment as successful solely because a workflow was triggered; verify the actual build, deployment, and live response.
-
-## 📝 Content & Business Data
-
-Before public/client launch, review all business-facing content in `src/App.jsx` and replace any sample or placeholder information with verified company data.
-
-This includes:
-
-- Company address
-- Phone numbers
-- Email addresses
-- Product specifications
-- Product availability
-- Certifications or quality claims
-- Social media links
-- Business hours
-
-Do not publish unverified claims as factual company information.
+A workflow being triggered is **not** sufficient evidence of a working website. Verify the deployment and live page separately.
 
 ## 📩 Enquiry Form
 
-The current enquiry form is frontend-only. It can display a local success state but does **not** automatically deliver enquiries to a real business inbox or CRM.
+The enquiry form currently provides frontend feedback only. It does not send submissions to a real inbox or CRM.
 
-For production use, connect it to an appropriate backend or service such as:
+For production use, connect it to a secure backend, serverless function, email provider or CRM integration. Never place private credentials in `script.js` or other browser-delivered files.
 
-- A serverless function
-- A secure API
-- An email service
-- A CRM/webhook integration
+## 📝 Business Information
 
-Never place private API credentials directly in frontend source code.
+Before public launch, replace placeholder information with verified company data, including:
 
-## 🔐 Security
+- Address
+- Phone number
+- Email
+- Product specifications
+- Certifications
+- Availability
+- Social links
+- Business hours
 
-Do not commit:
-
-```text
-.env
-.env.*
-node_modules/
-dist/
-*.log
-```
-
-If environment variables are required, document their names in an `.env.example` file without including real credentials.
+Do not publish unverified claims as official company facts.
 
 ## ♿ Accessibility
 
-The frontend should preserve:
+The frontend includes semantic controls, visible focus behavior, keyboard-friendly interactions and a `prefers-reduced-motion` fallback.
 
-- Semantic HTML
-- Keyboard-accessible controls
-- Visible focus states
-- Form labels
-- Responsive touch targets
-- Reduced-motion considerations
-- Sufficient text/background contrast
-
-Accessibility should be checked again whenever the UI or animation system is changed.
+Test the website with keyboard navigation, mobile touch interaction and a screen reader before final launch.
 
 ## 📱 Responsive Targets
 
-The interface should be tested at representative widths including:
+Recommended verification widths:
 
-- 1440px desktop
-- 1280px desktop
-- 1024px tablet/small desktop
-- 768px tablet
-- 430px mobile
-- 390px mobile
-- 375px mobile
+- 1440px
+- 1280px
+- 1024px
+- 768px
+- 430px
+- 390px
+- 375px
 
-Check specifically for horizontal overflow, clipped content, broken navigation, and inaccessible controls.
+Check for horizontal overflow, clipped content, navigation failures and unusable buttons.
 
-## 🧪 Verification Checklist
+## 🧪 Release Checklist
 
-Before considering a release ready:
-
-- [ ] `npm install` succeeds
-- [ ] `npm run build` succeeds
-- [ ] Development server renders correctly
-- [ ] Production preview renders correctly
-- [ ] Desktop layout checked
-- [ ] Mobile layout checked
-- [ ] Images/assets load
-- [ ] Navigation works
-- [ ] Forms validate correctly
-- [ ] Browser console has no unexpected errors
-- [ ] GitHub Actions build succeeds
-- [ ] GitHub Pages deployment succeeds
-- [ ] Live Pages URL renders the application
-- [ ] No secrets are committed
+- [ ] Homepage loads
+- [ ] Navigation works on desktop and mobile
+- [ ] Buttons adapt correctly to viewport width
+- [ ] Product modal opens/closes
+- [ ] Inquiry form validates and responds
+- [ ] Scroll animations work
+- [ ] Reduced-motion mode works
+- [ ] No unexpected console errors
+- [ ] CSS loads correctly on GitHub Pages
+- [ ] JavaScript loads correctly on GitHub Pages
+- [ ] GitHub Actions deployment succeeds
+- [ ] Live Pages URL renders correctly
+- [ ] Placeholder business information is replaced
 
 ## 📄 License
 
-No explicit open-source license is currently declared. Treat the project's content, branding, images, and business information as proprietary unless the repository owner states otherwise.
+No explicit open-source license is currently declared. Treat the business branding, content and imagery as proprietary unless the repository owner states otherwise.
