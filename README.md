@@ -1,28 +1,24 @@
 # Chandanshiv Cement Products
 
-A premium, responsive **vanilla HTML + CSS + JavaScript** website for Chandanshiv Cement Products, designed around a warm beige architectural visual system.
+A responsive, animated **React + Vite** business web application for Chandanshiv Cement Products, designed around a warm beige architectural visual system.
 
 > **Stronger foundations. Better tomorrow.**
 
-## ✨ Frontend
+## ✨ What is included
 
-The current frontend is intentionally framework-free for simple GitHub Pages hosting and predictable deployment.
-
-It includes:
-
-- Adaptive desktop, tablet and mobile layouts
-- Beige architectural design system
-- Animated hero composition
-- Scroll reveal animations
+- React-based component architecture
+- Six routed screens: Home, About Us, Products, Services, Inquiry, Contact
+- Responsive desktop/tablet/mobile navigation
+- Adaptive full-width mobile buttons
+- Animated hero and page transitions
+- Product cards with enquiry modal
+- Inquiry form with client-side validation/state
 - Scroll progress indicator
-- Responsive navigation drawer
-- Adaptive pill buttons and hover/magnetic interactions
-- Interactive product enquiry modal
-- Client-side enquiry form feedback
-- Accessible labels, focus states and reduced-motion support
-- Contact and footer sections
+- Reduced-motion support
+- Beige design system using the supplied palette
+- GitHub Actions deployment to GitHub Pages
 
-## 🎨 Beige Design System
+## 🎨 Design System
 
 ```css
 --bg-main: #fdfbf7;
@@ -35,19 +31,17 @@ It includes:
 --text-muted: #61574c;
 ```
 
-The palette is used consistently for canvas, surfaces, borders, interactive elements, typography and hover states.
+The visual language is intentionally warm, minimal, architectural, and premium rather than a generic blue corporate template.
 
-## 🧱 Technology
+## 💻 Technology
 
-| Technology | Purpose |
-|---|---|
-| HTML5 | Semantic page structure |
-| CSS3 | Layout, responsive design, animation and theme |
-| Vanilla JavaScript | Navigation, modal, form state and motion |
-| GitHub Actions | Deployment automation |
-| GitHub Pages | Static hosting |
-
-No React, Vite, npm dependency installation or JavaScript framework is required for the current frontend.
+- HTML5
+- CSS3
+- JavaScript
+- React
+- Vite
+- GitHub Actions
+- GitHub Pages
 
 ## 📁 Structure
 
@@ -56,50 +50,82 @@ chandanshiv-cement-platform/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml
+├── src/
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── styles.css
 ├── index.html
-├── styles.css
-├── script.js
-├── README.md
-└── .gitignore
+├── package.json
+├── vite.config.js
+├── .gitignore
+└── README.md
 ```
 
-The runtime is intentionally simple:
+Application flow:
 
 ```text
 index.html
-   ├── styles.css
-   └── script.js
+    ↓
+src/main.jsx
+    ↓
+src/App.jsx
+    ↓
+Home / About / Products / Services / Inquiry / Contact
+    ↓
+src/styles.css
 ```
 
-## 🚀 Run Locally
+## 🚀 Run locally
 
-Because this is a static website, no build step is required.
+Requirements:
 
-You can open `index.html` directly in a browser, or use any local static server.
+- Node.js 22+ recommended
+- npm
+- Git
 
-Example with Python:
+Install dependencies:
 
 ```bash
-python -m http.server 8000
+npm install
 ```
 
-Then open:
+Start development:
 
-```text
-http://localhost:8000
+```bash
+npm run dev
 ```
+
+Build production files:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+The Vite production output is generated in `dist/`.
 
 ## 🌐 GitHub Pages
 
-The repository deploys the static site directly through GitHub Actions.
+The project deploys through `.github/workflows/deploy.yml`.
+
+Deployment flow:
 
 ```text
 Push to main
-    ↓
+   ↓
 GitHub Actions
-    ↓
-Upload repository as Pages artifact
-    ↓
+   ↓
+npm install
+   ↓
+npm run build
+   ↓
+Upload dist/
+   ↓
 GitHub Pages
 ```
 
@@ -111,79 +137,53 @@ Expected Pages URL:
 
 https://pavanvashishta.github.io/chandanshiv-cement-platform/
 
-GitHub Pages should use **GitHub Actions** as its deployment source.
+The repository uses `base: './'` in Vite so generated assets remain compatible with the repository Pages path.
 
-## 🔧 Troubleshooting
+## 🧪 Verification checklist
 
-If the site is blank:
+Before calling a release complete:
 
-1. Check the latest GitHub Actions run.
-2. Confirm the deployment job succeeded.
-3. Confirm `index.html`, `styles.css` and `script.js` are present at the repository root.
-4. Open the repository Pages URL rather than `https://pavanvashishta.github.io/`.
-5. Open browser DevTools → Console and Network.
-6. Check for missing CSS/JS files or JavaScript errors.
-7. Hard-refresh or test in a private window if an old deployment is cached.
+- [ ] `npm install` succeeds
+- [ ] `npm run build` succeeds
+- [ ] Home screen renders
+- [ ] About Us screen renders
+- [ ] Products screen renders
+- [ ] Product modal works
+- [ ] Services screen renders
+- [ ] Inquiry validation works
+- [ ] Contact screen renders
+- [ ] Mobile menu works
+- [ ] Buttons remain usable on mobile
+- [ ] No horizontal overflow
+- [ ] Reduced-motion mode works
+- [ ] GitHub Actions build succeeds
+- [ ] GitHub Pages deployment succeeds
+- [ ] Live Pages URL renders correctly
 
-A workflow being triggered is **not** sufficient evidence of a working website. Verify the deployment and live page separately.
+## 📩 Inquiry form
 
-## 📩 Enquiry Form
+The form currently demonstrates frontend behaviour only. It does not deliver messages to a real inbox or CRM.
 
-The enquiry form currently provides frontend feedback only. It does not send submissions to a real inbox or CRM.
+For production, connect it to a secure backend, serverless function, email provider, or CRM integration. Never place private credentials in frontend source code.
 
-For production use, connect it to a secure backend, serverless function, email provider or CRM integration. Never place private credentials in `script.js` or other browser-delivered files.
+## ⚠️ Business information
 
-## 📝 Business Information
+Some contact/product details are intentionally marked as sample information. Before a public/client launch, replace them with verified company data, including:
 
-Before public launch, replace placeholder information with verified company data, including:
+- phone number
+- email address
+- physical address
+- product specifications
+- certifications
+- delivery/service claims
+- social links
 
-- Address
-- Phone number
-- Email
-- Product specifications
-- Certifications
-- Availability
-- Social links
-- Business hours
-
-Do not publish unverified claims as official company facts.
+Do not publish unverified business claims as factual information.
 
 ## ♿ Accessibility
 
-The frontend includes semantic controls, visible focus behavior, keyboard-friendly interactions and a `prefers-reduced-motion` fallback.
-
-Test the website with keyboard navigation, mobile touch interaction and a screen reader before final launch.
-
-## 📱 Responsive Targets
-
-Recommended verification widths:
-
-- 1440px
-- 1280px
-- 1024px
-- 768px
-- 430px
-- 390px
-- 375px
-
-Check for horizontal overflow, clipped content, navigation failures and unusable buttons.
-
-## 🧪 Release Checklist
-
-- [ ] Homepage loads
-- [ ] Navigation works on desktop and mobile
-- [ ] Buttons adapt correctly to viewport width
-- [ ] Product modal opens/closes
-- [ ] Inquiry form validates and responds
-- [ ] Scroll animations work
-- [ ] Reduced-motion mode works
-- [ ] No unexpected console errors
-- [ ] CSS loads correctly on GitHub Pages
-- [ ] JavaScript loads correctly on GitHub Pages
-- [ ] GitHub Actions deployment succeeds
-- [ ] Live Pages URL renders correctly
-- [ ] Placeholder business information is replaced
+The UI includes semantic controls, keyboard-friendly buttons, visible focus states, responsive touch targets, and `prefers-reduced-motion` support.
 
 ## 📄 License
 
-No explicit open-source license is currently declared. Treat the business branding, content and imagery as proprietary unless the repository owner states otherwise.
+No explicit open-source license is currently declared. Treat the company's branding, content, and business information as proprietary unless the repository owner states otherwise.
