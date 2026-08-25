@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/chandanshiv-cement-platform/',
+  // Relative asset URLs keep the build working on GitHub Pages
+  // under /chandanshiv-cement-platform/ and when previewed elsewhere.
+  base: './',
 })
